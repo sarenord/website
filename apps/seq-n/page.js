@@ -14,24 +14,29 @@ window.onclick = function(e) {
 
 //entry point
 function initSequencer() {
+    var drumkits = ["basekit"];
     // insert HTML for the rows of the sequencer
     var table = document.getElementById("sequencer");
     for (var i=0; i < 5; i++) {
-	var row = document.createElement("div");
-	row.className = "sequenceRow";
-	row.appendChild(createInstrumentDropdown());
-	for (var j=0; j < 8; j++) {
-	    var s = document.createElement("div");
-	    var c = document.createElement("div");
-	    s.className = "step";
-	    c.className = "cell inactive";
-	    c.id = i + '-' + j;
-	    c.onclick = function () {toggleStep();};
-	    s.appendChild(c);
-	    row.appendChild(s);
-	}
-	table.appendChild(row);
+	table.appendChild(createSequencerRow());
     }
+}
+
+
+function createSequencerRow() {
+    var row = document.createElement("div");
+    row.className = "sequenceRow";
+    row.appendChild(createInstrumentDropdown());
+    for (var j=0; j < 8; j++) {
+	var s = document.createElement("div");
+	var c = document.createElement("div");
+	s.className = "step";
+	c.className = "cell inactive";
+	c.onclick = function () {toggleStep();};
+	s.appendChild(c);
+	row.appendChild(s);
+    }
+    return row
 }
 
 function createInstrumentDropdown() {
@@ -53,6 +58,7 @@ function createInstrumentDropdown() {
 }
 
 
+// functions for event handlers
 function toggleDropdown() {
     var el = event.target || event.srcElement;
     el.parentElement.childNodes[1].classList.toggle("show");
@@ -61,15 +67,16 @@ function toggleDropdown() {
 function toggleStep() {
     var el = event.target || event.srcElement;
     if ((el.className == "cell inactive") || (el.className == "cell active")) {
-	var cell = document.getElementById(el.id);
-	cell.className = cell.className=="cell inactive" ? "cell active" : "cell inactive";
+	el.className = el.className=="cell inactive" ? "cell active" : "cell inactive";
     }
 }
 
-function nextNote() {
-    var secondsPerBeat = 60.0/tempo;
-    currentNote++;
-    if (currentNote == numsteps) {
-	currentNote = 0;
-    }
+//TODO
+function selectSound() {
+    var el = event.target || event.srcElement;
+}
+
+//TODO
+function getKit() {
+
 }

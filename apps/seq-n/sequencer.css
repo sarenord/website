@@ -1,0 +1,72 @@
+/* container around sequencer buttons/table */
+div.container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* dropdowns for sound selection */
+dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownButton {
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    width: 150px;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: grey;
+    min-width: 80px;
+}
+
+.dropdownContent a {
+    padding: 5px 5px;
+    display: block;
+    border: solid;
+    border-width: 1px;
+}
+
+.show {
+    display: block;
+}
+
+/* sequencer buttons and table */
+div #sequencer {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: grey;
+    padding: 20px;
+}
+
+div.sequenceRow {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+div.step {
+    border: solid;
+    border-width: .2px;
+    padding: 2px 2px;
+    background-color: white;
+}
+
+div.step > div.cell {
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+}
+
+div.cell.active {
+    background-color: black;
+}
+
+div.cell.inactive {
+    background-color: white;
+}

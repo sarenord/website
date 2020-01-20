@@ -14,12 +14,14 @@ window.onclick = function(e) {
 
 //entry point
 function initSequencer() {
+    var drumkits = ["basekit"];
     // insert HTML for the rows of the sequencer
     var table = document.getElementById("sequencer");
     for (var i=0; i < 5; i++) {
 	table.appendChild(createSequencerRow());
     }
 }
+
 
 function createSequencerRow() {
     var row = document.createElement("div");
@@ -56,6 +58,7 @@ function createInstrumentDropdown() {
 }
 
 
+// functions for event handlers
 function toggleDropdown() {
     var el = event.target || event.srcElement;
     el.parentElement.childNodes[1].classList.toggle("show");
@@ -68,10 +71,12 @@ function toggleStep() {
     }
 }
 
-function nextNote() {
-    var secondsPerBeat = 60.0/tempo;
-    currentNote++;
-    if (currentNote == numsteps) {
-	currentNote = 0;
-    }
+//TODO
+function selectSound() {
+    var el = event.target || event.srcElement;
+}
+
+//TODO
+function getKit() {
+
 }

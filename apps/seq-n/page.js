@@ -47,15 +47,15 @@ function createInstrumentDropdown() {
 	item.href = "#";
 	dropdownContent.appendChild(item);
     }
-    dropdownButton.appendChild(dropdownContent);
     dropdown.appendChild(dropdownButton);
+    dropdown.appendChild(dropdownContent);
     return dropdown;
 }
 
 
 function toggleDropdown() {
     var el = event.target || event.srcElement;
-    el.childNodes[0].classList.toggle("show");
+    el.parentElement.childNodes[1].classList.toggle("show");
 }
 
 function toggleStep() {
